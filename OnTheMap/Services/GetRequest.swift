@@ -18,6 +18,6 @@ class GetUserRequest {
 
 class GetStudentRequest {
     typealias ResponseType = StudentsLocation
-    var endpoint: URL { URL(string: API.base + "/StudentLocatINVALIDion?limit=100&order=-updatedAt")!}
+    var endpoint: URL { URL(string: API.base + "/StudentLocation?limit=100&order=-updatedAt")!}
     var apiType: String { "Parse" }
 }
