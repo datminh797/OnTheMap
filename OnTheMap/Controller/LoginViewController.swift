@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
                 appDelegate.window?.rootViewController = tabbar
                 appDelegate.window?.makeKeyAndVisible()
             } else {
-                self.showAlert(message: "The Internet connection is offline, please try again later", title: "Login Error")
+                self.showAlert(message: "The credential is incorrect, please check email/password again", title: "Login Error")
             }
         }
     }

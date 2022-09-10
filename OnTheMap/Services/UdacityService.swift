@@ -47,6 +47,7 @@ class UdacityService: NSObject {
                 })
             } else {
                 completion(false, nil)
+                print("The internet connection waa lost, please check again your connection")
             }
         }
     }
