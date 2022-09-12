@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
                 appDelegate.window?.rootViewController = tabbar
                 appDelegate.window?.makeKeyAndVisible()
             } else {
-                self.showAlert(message: "The credential is incorrect, please check email/password again", title: "Login Error")
+                self.showAlert(message: error?.localizedDescription ?? "", title: "Login Error")
             }
         }
     }

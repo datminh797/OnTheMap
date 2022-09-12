@@ -40,14 +40,22 @@ class UdacityService: NSObject {
     func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let request = PostLoginRequest(userName: email, password: password)
         NetworkController.postRequest(url: request.endpoint, apiType: Constants.UdacityKey, responseType: LoginResponse.self, body: request.queryParameters, httpMethod: "POST") { (response, error) in
+            
+            if let error = error {
+                completion(false, error)
+            }
+            
             if let response = response {
                 self.auth = Auth(sessionId: response.session?.id, key: response.account?.key, firstName: "", lastName: "", objectId: "")
                 self.getLoggedInUserProfile(completion: { (success, error) in
+                    
+                    if let error = error {
+                        completion(false, error)
+                    }
                     completion(success, nil)
                 })
             } else {
-                completion(false, nil)
-                print("The internet connection waa lost, please check again your connection")
+                completion(false, error)
             }
         }
     }
